@@ -1,0 +1,41 @@
+src/main/resources/application.properties
+
+
+spring.mvc.view.prefix:/WEB-INF/jsp/
+spring.mvc.view.suffix:.jsp
+
+
+<dependency> 
+       <groupId>org.apache.tomcat.embed</groupId> 
+       <artifactId>tomcat-embed-jasper</artifactId>
+</dependency>
+<dependency>
+        <groupId>javax.servlet</groupId>
+        <artifactId>jstl</artifactId>
+</dependency>
+
+
+src/main/webapp/WEB-INF/jsp/hello.jsp
+
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping; 
+import org.springframework.web.servlet.ModelAndView;
+
+@Controller
+public class HelloController {
+
+    @GetMapping("hello")
+    public ModelAndView sayHello() {
+			List mesAlbums = albumsService.getMesAlbums() ; 
+      ModelAndView mav = new ModelAndView("hello"); 
+      mav.addObject("albums", mesAlbums);
+			return mav;
+		} 
+}
+
+
+<dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-thymeleaf</artifactId>
+        </dependency>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1>Quiz</h1>
+    <div>
+        <ul th:each="q:${question}">
+            <li th:text="${q.title}"></li>
+            <ul th:each="a:${q.answers}">
+                <li th:text="${a.title}"></li>
+            </ul>
+        </ul>
+    </div>
+
+    <div>
+
+        <ul th:each="q:${question}">
+            <p>Question : </p>
+            <li th:text="${q.title}"></li>
+            <ul th:each="a:${q.answers}">
+                <li th:text="${a.title}"></li>
+            </ul>
+        </ul>
+    </div>
+</body>
+</html>
